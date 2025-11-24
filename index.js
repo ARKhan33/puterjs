@@ -21,6 +21,10 @@ async function createTempAccount() {
   const response = await axios.post(url, { is_temp: true }, { headers });
   return response.data.token;
 }
+// --- Root Route ---
+app.get("/", (req, res) => {
+  res.send("🚀 Puter.js API is running! Use /generate?prompt=YOUR_PROMPT");
+});
 
 // --- Helper: Get User App Token ---
 async function getAppToken(authToken) {
